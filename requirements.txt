@@ -1,0 +1,10 @@
+# Main in case of need for animation
+manim==0.20.1
+ManimPango==0.6.1
+
+# Pygame and numpy for game development or prototyping
+numpy==2.4.3
+pygame==2.6.1
+
+# Matplot for projects outside of pygame
+matplotlib==3.11
