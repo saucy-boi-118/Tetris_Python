@@ -1,21 +1,26 @@
 # GLOBAL AND CONSTANT VARIABLES THROUGHOUT PROJECT
+import pygame as pg
 
 # WINDOW VARIABLES
 WINW = 500
 WINH = 500
-TITLE:str = "My Pygame Project"
+CELLSIZE = 20
+FPS = 25
+TITLE:str = "Tetris"
 
 # COLOR VARIABLES
-RED = ()
-ORANGE = ()
-YELLOW = ()
-GREEN = ()
-BLUE = ()
-PURPLE = ()
-VIOLET = ()
-PINK = ()
-WHITE = (255,255,255)
-BLACK = (0,0,0)
+RED = pg.Color(210, 100, 102)
+ORANGE = pg.Color(251, 187, 98)
+YELLOW = pg.Color(251, 243, 138)
+GREEN = pg.Color(161, 247, 145)
+BLUE = pg.Color(155, 190, 237)
+PURPLE = pg.Color(154, 127, 174)
+VIOLET = pg.Color(203, 153, 201)
+PINK = pg.Color(246, 178, 215)
+WHITE = pg.Color(255,255,255)
+CYAN = pg.Color(164, 216, 216)
+GREY = pg.Color(154, 144, 138)
+BLACK = pg.Color(0,0,0)
 
 
 # GAME VARIABLES
