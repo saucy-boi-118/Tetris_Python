@@ -85,23 +85,54 @@ class Grid:
         else:
             # Return right
             return 1
-    def ClearLines(self):
+    def ClearLines(self) -> int:
+        score = 0
         for i in range(self.height-2,15,-1):
 
             # A list of the amount of empty spaces
-            row = self.grid[i]
-            result = [x for x in range(1,self.game_width) if(lambda x: row[x]==7)(x)]
+            row:list[int] = self.grid[i]
 
+            # filter through all the values in the row and if it has an empty spot keep it
+            result = list(filter(lambda x: x == 7, row))
+            
+            
             # If its not empty
             if len(result) == 0 or len(result) == self.game_width:
                 # Clear the row
-                row[1:self.game_width] = 7
+                self.grid[i][1:self.game_width] = 7
+
+                # Add to score, 100 points
+                score += 100
 
                 # loop through the rows
                 # set the current row to the previous one
                 for i in range(self.height-1,15,-1):
                     previous_row = self.grid[i-1]
                     self.grid[i] = previous_row
+        return score
+    def AnyEmptyLine(self):
+        for i in range(self.height-1, 15, -1):
+
+            # Reduce the row into a single value
+            row:list[int] = self.grid[i]
+            result = list(filter(lambda x: x == 7, row))
+
+            # Full of empty
+            if len(result) == self.game_width:
+                return True 
+            
+        return False
+    def MoveLines(self):
+        # loop through the rows
+        # set the current row to the previous one
+        for i in range(self.height-1,15,-1):
+            previous_row = self.grid[i-1]
+            self.grid[i] = previous_row
+    def ClearGrid(self):
+        for i in range(self.height-2,10,-1):
+            row = self.grid[i]
+            # Clear all the row
+            row[1:self.game_width] = 7
     def __Redefine(self):
         # Left and Right Rows
         # For all the rows for every (width-1) columns set it to 1
